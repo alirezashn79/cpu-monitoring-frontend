@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { io } from 'socket.io-client'
-import { BACKEND_URL } from '../constants/constants'
+const BACKEND_URL = process.env.BACKEND_URL
 
 export default function useGetSocket() {
   const [cpuUsageChartData, setCpuUsageChartData] = useState<[number, number][]>([])

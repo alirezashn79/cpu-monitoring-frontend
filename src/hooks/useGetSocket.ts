@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { io } from 'socket.io-client'
-const BACKEND_URL = process.env.BACKEND_URL
 
 export default function useGetSocket() {
   const [cpuUsageChartData, setCpuUsageChartData] = useState<[number, number][]>([])
   const [memoryUsageChartData, setMemoryUsageChartData] = useState<[number, number][]>([])
   const [isLoading, setIsLoading] = useState(true)
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
   useEffect(() => {
     const socket = io(BACKEND_URL, {
       transports: ['websocket'],
